@@ -1,10 +1,41 @@
 import { createBrowserRouter } from "react-router-dom";
 
-const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <div><button className="btn btn-secondary font-amrimo">HELLO</button></div>,
-    },
-  ]);
+import App from "../App";
+import Home from "../Pages/Home";
+import UpdateProfile from "../Pages/UpdateProfile";
+import Profile from "../Pages/Profile";
+import Contact from "../Pages/Contact";
+import About from "../Pages/About";
 
-  export default router;
+const router = createBrowserRouter(
+    [
+        {
+            path: '/',
+            element: <App/>,
+            children:[
+                {
+                    path:'/',
+                    element:<Home></Home>
+                },
+                {
+                    path:'/upadteprofile',
+                    element: <UpdateProfile/>
+                },
+                {
+                    path: '/Profile',
+                    element: <Profile/>
+                },
+                {
+                    path: '/contact',
+                    element: <Contact/>
+                },
+                {
+                    path:'/about',
+                    element: <About/>
+                }
+            ]
+        }
+    ]
+)
+
+export default router;

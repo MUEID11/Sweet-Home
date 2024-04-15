@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "image_url": "https://example.com/banner1.jpg",
+    "title": "Your Dream Home Awaits!",
+    "description": "Find the perfect place to call home. Explore our range of residential properties and discover your dream home today."
+  },
+  {
+    "id": 2,
+    "image_url": "https://example.com/banner2.jpg",
+    "title": "Luxury Living Redefined",
+    "description": "Experience unparalleled luxury and comfort in our exclusive collection of high-end residential properties."
+  },
+  {
+    "id": 3,
+    "image_url": "https://example.com/banner3.jpg",
+    "title": "Invest in Your Future",
+    "description": "Invest in residential real estate and secure your financial future. Explore lucrative opportunities in the housing market."
+  },
+  {
+    "id": 4,
+    "image_url": "https://example.com/banner4.jpg",
+    "title": "Your Key to Homeownership",
+    "description": "Unlock the door to homeownership with our range of affordable residential properties. Start building your future today."
+  },
+  {
+    "id": 5,
+    "image_url": "https://example.com/banner5.jpg",
+    "title": "Modern Living Spaces",
+    "description": "Discover modern and stylish living spaces designed to fit your lifestyle. Explore our selection of contemporary residential buildings."
+  },
+  {
+    "id": 6,
+    "image_url": "https://example.com/banner6.jpg",
+    "title": "Find Your Sanctuary",
+    "description": "Escape the hustle and bustle of city life and find your sanctuary in one of our serene residential communities."
+  }
+]
