@@ -1,7 +1,25 @@
+import { useContext } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Login = () => {
+  const {signInUser} = useContext(AuthContext);
+  const handleLogin = e => {
+    e.preventDefault();
+    const form = new FormData(e.currentTarget);
+    const email = form.get('email');
+    const password = form.get('password');
+    console.log(form.get('email'));
+    //sign in user
+    signInUser(email, password)
+    .then(result => {
+      console.log(result)
+    })
+    .catch(error => {
+      console.log(error)
+    })
+  }
   return (
     <div>
       <div className="w-full max-w-md p-4 rounded-md shadow sm:p-8 dark:bg-gray-50 dark:text-gray-800 container mx-auto my-6 shadow-blue-100 ">
@@ -41,7 +59,7 @@ const Login = () => {
         <p className="px-3 dark:text-gray-600">OR</p>
         <hr className="w-full dark:text-gray-600" />
       </div>
-      <form noValidate="" action="" className="space-y-8">
+      <form noValidate="" onSubmit={handleLogin} action="" className="space-y-8">
         <div className="space-y-4">
           <div className="space-y-2">
             <label htmlFor="email" className="block text-sm">
@@ -73,8 +91,8 @@ const Login = () => {
           </div>
         </div>
         <button
-          type="button"
-          className="w-full btn btn-primary px-8 py-3 font-semibold rounded-md dark:bg-violet-600 dark:text-gray-50"
+          type="submit"
+          className="w-full btn bg-blue-500 text-white border-none px-8 py-3 font-semibold rounded-md dark:bg-violet-600 dark:text-gray-50"
         >
           Sign in
         </button>

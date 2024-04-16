@@ -1,50 +1,54 @@
 import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import { FaDollarSign, FaLocationDot, FaLocationPin } from "react-icons/fa6";
 
 const Details = () => {
   const { data } = useContext(AuthContext);
 
   const { id } = useParams();
-  const [items, setItems] = useState();
+  const [property, setProperty] = useState();
+  console.log(property);
   useEffect(() => {
-    console.log(data);
     const details = data.find((item) => item?.id === parseInt(id));
-    setItems(details);
+    setProperty(details);
   }, [id, data]);
   return (
-    <div>
-      <section>
-        <div className="dark:bg-violet-600">
-          <div className="container flex flex-col items-center px-4 py-16 pb-24 mx-auto text-center lg:pb-56 md:py-32 md:px-10 lg:px-32 dark:text-gray-50">
-            <h1 className="text-5xl font-bold leading-none sm:text-6xl xl:max-w-3xl dark:text-gray-50">
-              {items?.title}
-            </h1>
-            <p className="mt-6 mb-8 text-lg sm:mb-12 xl:max-w-3xl dark:text-gray-50">
-              {items?.description}
-            </p>
-            <div className="flex flex-wrap justify-center">
-              <button
-                type="button"
-                className="px-8 py-3 m-2 text-lg font-semibold rounded dark:bg-gray-100 dark:text-gray-900"
-              >
-                Buy Now
-              </button>
-              <button
-                type="button"
-                className="px-8 py-3 m-2 text-lg border rounded dark:border-gray-300 dark:text-gray-50"
-              >
-                Book Now
-              </button>
-            </div>
+    <div
+      className="hero min-h-screen"
+      style={{ backgroundImage: `url(${property?.image_url})` }}
+    >
+      <div className="hero-overlay bg-opacity-80"></div>
+      <div className="grid sm:grid-cols-2 grid-cols-1 p-4 gap-4 sm:p-20 sm:gap-10 text-white">
+        <div className="min-w-md">
+          <h1 className="mb-5 text-5xl font-bold">{property?.title}</h1>
+          <p className="mb-5">{property?.description}</p>
+          <hr className="mb-3" />
+          <p className="mb-5 font-medium flex items-center"><FaLocationDot className="mr-4"/> {property?.location}</p>
+          <hr className="mb-3" />
+          <div className="mb-5 text-lg font-medium">
+            Facilities:
+            <ul className="flex-cols items-center justify-center">
+              {property?.facilities.map((facility, idx) => (
+                <li className="list-disc ml-8" key={idx}>{facility}</li>
+              ))}
+            </ul>
           </div>
+          <hr className="mb-3" />
+          <p className="mb-5 text-lg font-medium">Property Type: {property?.segment_name}</p>
+          <hr className="mb-3" />
+          <p className="mb-5 font-bold text-red-400 text-2xl">On {property?.status}</p>
+          <p className="mb-5 font-bold text-green-400 text-3xl flex items-center">
+            Price: {property?.price} <FaDollarSign className="ml-2"/>
+          </p>
+          <hr className="mb-3" />
+          <button className="btn btn-ghost">Add to wishlist</button>
+          <Link to='/estates' className="btn btn-outline btn-info">More estates</Link>
         </div>
-        <img
-          src={items?.image_url}
-          alt="property"
-          className="w-5/6 mx-auto mb-12 -mt-20 dark:bg-gray-500 rounded-lg shadow-md lg:-mt-40"
-        />
-      </section>
+        <div>
+          <img className="rounded-lg" src={property?.image_url} alt="" />
+        </div>
+      </div>
     </div>
   );
 };

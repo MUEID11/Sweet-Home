@@ -38,7 +38,7 @@ export default function SwiperSlider() {
           <div className="max-w-md">
             <h1 className="mb-5 text-5xl font-bold">{slide?.title}</h1>
             <p className="mb-5">{slide?.description}</p>
-            <Link to='/estates' className="btn btn-primary">Get Started</Link>
+            <Link to='/estates' className="btn bg-blue-500 text-white border-none">Get Started</Link>
           </div>
         </div>
       </div></SwiperSlide>)

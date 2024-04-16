@@ -54,7 +54,7 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{navLinks}</ul>
         </div>
         <div className="navbar-end">
-          <Link to='/login' className="btn btn-primary">Login</Link>
+          <Link to='/login' className="btn bg-blue-400 text-white">Login</Link>
         </div>
       </div>
     </div>
