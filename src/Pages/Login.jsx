@@ -6,7 +6,7 @@ import UseAuth from "../Hooks/UseAuth";
 
 
 const Login = () => {
-  const {signInUser, googleSignIn} = UseAuth();
+  const {signInUser, googleSignIn, githubSignIn} = UseAuth();
   const location = useLocation();
   const navigate = useNavigate();
   const handleLogin = e => {
@@ -52,6 +52,7 @@ const Login = () => {
           <p>Login with Google</p>
         </button>
         <button
+        onClick={() => {githubSignIn()}}
           aria-label="Login with GitHub"
           role="button"
           className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-600 focus:dark:ring-violet-600"
