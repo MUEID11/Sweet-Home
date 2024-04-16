@@ -1,10 +1,11 @@
-import { useContext, useEffect, useState } from "react";
+
 import { Link, useParams } from "react-router-dom";
-import { AuthContext } from "../Provider/AuthProvider";
 import { FaDollarSign, FaLocationDot} from "react-icons/fa6";
+import UseAuth from "../Hooks/UseAuth";
+import { useEffect, useState } from "react";
 
 const Details = () => {
-  const { data} = useContext(AuthContext);
+  const { data} = UseAuth();
   const { id } = useParams();
   const [property, setProperty] = useState();
   console.log(property);

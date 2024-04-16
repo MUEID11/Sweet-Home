@@ -1,10 +1,12 @@
-import { useContext } from "react";
+
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { AuthContext } from "../Provider/AuthProvider";
+import UseAuth from "../Hooks/UseAuth";
+
+
 
 const Login = () => {
-  const {signInUser} = useContext(AuthContext);
+  const {signInUser, googleSignIn} = UseAuth();
   const location = useLocation();
   const navigate = useNavigate();
   const handleLogin = e => {
@@ -41,6 +43,7 @@ const Login = () => {
       </p>
       <div className="my-6 space-y-4">
         <button
+        onClick={() => googleSignIn()}
           aria-label="Login with Google"
           type="button"
           className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-600 focus:dark:ring-violet-600"

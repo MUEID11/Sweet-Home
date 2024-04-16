@@ -1,10 +1,9 @@
-import { useContext } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../Provider/AuthProvider";
+import UseAuth from "../Hooks/UseAuth";
 
 const Register = () => {
-  const {createUser} = useContext(AuthContext);
+  const {createUser} = UseAuth()
   const handleRegister = e => {
     e.preventDefault();
     const form = new FormData(e.currentTarget);

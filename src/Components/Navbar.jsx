@@ -5,7 +5,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 import { RiLogoutBoxLine, RiLogoutBoxRLine } from "react-icons/ri";
 const Navbar = () => {
   const {user, logOutUser} = useContext(AuthContext);
-  const handleSignOut = e =>{
+  const handleSignOut = () =>{
     logOutUser()
     .then(result => {
       console.log('logged out succsfull', result)
