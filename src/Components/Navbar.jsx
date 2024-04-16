@@ -1,6 +1,19 @@
 import { Link, NavLink } from "react-router-dom";
-import logo from './../../public/logo.png'
+import logo from "./../../public/logo.png";
+import { useContext } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
+import { RiLogoutBoxLine, RiLogoutBoxRLine } from "react-icons/ri";
 const Navbar = () => {
+  const {user, logOutUser} = useContext(AuthContext);
+  const handleSignOut = e =>{
+    logOutUser()
+    .then(result => {
+      console.log('logged out succsfull', result)
+    })
+    .catch(error => {
+      console.log(error)
+    })
+  }
   const navLinks = (
     <>
       <li>
@@ -48,13 +61,34 @@ const Navbar = () => {
               {navLinks}
             </ul>
           </div>
-          <Link to='/' className="btn btn-ghost sm:text-xl font-bold"><img className="sm:w-10 w-6 rounded-full" src={logo} alt="logo"/> Sweet Home</Link>
+          <Link to="/" className="btn btn-ghost sm:text-xl font-bold">
+            <img className="sm:w-10 w-6 rounded-full" src={logo} alt="logo" />{" "}
+            Sweet Home
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navLinks}</ul>
         </div>
         <div className="navbar-end">
-          <Link to='/login' className="btn bg-blue-400 text-white">Login</Link>
+          <div
+            tabIndex={0}
+            role="button"
+            className="btn btn-ghost btn-circle avatar"
+          >
+            <div className="w-10 rounded-full">
+              <img
+                alt="Tailwind CSS Navbar component"
+                src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+              />
+            </div>
+          </div>
+          {
+            user ? <Link onClick={handleSignOut} to="/login" className="btn bg-blue-400 text-white">
+            <RiLogoutBoxLine /> Log Out
+          </Link> : <Link to="/login" className="btn bg-blue-400 text-white">
+          <RiLogoutBoxRLine /> Log In
+          </Link>
+          }
         </div>
       </div>
     </div>

@@ -1,14 +1,12 @@
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from "../Firebase/firebase.config";
 
 export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
-  //slider state
   const [user, setUser] = useState(null);
-  //onAuth state
-  const [currentUser, setCurrentUser] = useState(null);
+  const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
   useEffect(() => {
     fetch("/BannerData.json")
@@ -18,15 +16,22 @@ const AuthProvider = ({ children }) => {
       });
   },[]);
   const createUser = (email, password) => {
+    setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   }
   const signInUser = (email, password) => {
+    setLoading(true);
     return signInWithEmailAndPassword(auth, email, password)
+  }
+  const logOutUser = () =>{
+    setLoading(true)
+    return signOut(auth);
   }
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       console.log("auth sate of user", currentUser);
-      setCurrentUser(currentUser);
+      setUser(currentUser);
+      setLoading(false)
     });
     return () => {
       unSubscribe();
@@ -35,9 +40,10 @@ const AuthProvider = ({ children }) => {
   const authInfo = {
     user,
     data,
+    loading,
     createUser,
     signInUser,
-    currentUser,
+    logOutUser,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
