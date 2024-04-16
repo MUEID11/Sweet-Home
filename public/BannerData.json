@@ -1,38 +1,110 @@
 [
   {
+    "title": "Cozy Cottage Retreat",
     "id": 1,
-    "image_url": "https://i.ibb.co/rsqNJXG/datingscout-SQ3i-MGte-T6s-unsplash.jpg",
-    "title": "Your Dream Home Awaits!",
-    "description": "Find the perfect place to call home. Explore our range of residential properties and discover your dream home today."
+    "segment_name": "Residential",
+    "description": "A charming cottage nestled in a peaceful countryside setting.",
+    "price": 150000,
+    "status": "sale",
+    "area": "1200 sq ft",
+    "location": "789 Oak Street, Ruralville, State, Country",
+    "facilities": ["living room", "kitchen", "patio"],
+    "image_url": "https://i.ibb.co/rsqNJXG/datingscout-SQ3i-MGte-T6s-unsplash.jpg"
   },
   {
+    "title": "Rural Retreat",
     "id": 2,
-    "image_url": "https://i.ibb.co/BfTK8Z5/scott-webb-1ddol8rg-UH8-unsplash.jpg",
-    "title": "Luxury Living Redefined",
-    "description": "Experience unparalleled luxury and comfort in our exclusive collection of high-end residential properties."
+    "segment_name": "Residential",
+    "description": "Escape to the countryside with this peaceful retreat surrounded by nature",
+    "price": 450000,
+    "status": "sale",
+    "area": "1800 sq ft",
+    "location": "456 Broadway, Metro City, State, Country",
+    "facilities": ["open floor plan", "high ceilings", "modern kitchen"],
+    "image_url": "https://i.ibb.co/BfTK8Z5/scott-webb-1ddol8rg-UH8-unsplash.jpg"
   },
   {
+    "title": "Family Haven",
     "id": 3,
-    "image_url": "https://i.ibb.co/09V7xs3/evelyn-paris-XJn-P4-L958ds-unsplash.jpg",
-    "title": "Invest in Your Future",
-    "description": "Invest in residential real estate and secure your financial future. Explore lucrative opportunities in the housing market."
+    "segment_name": "Residential",
+    "description": "Spacious family home with a large backyard and plenty of room to grow.",
+    "price": 280000,
+    "status": "sale",
+    "area": "2200 sq ft",
+    "location": "101 Maple Avenue, Suburbia, State, Country",
+    "facilities": ["living room", "kitchen", "backyard", "garage"],
+    "image_url": "https://i.ibb.co/09V7xs3/evelyn-paris-XJn-P4-L958ds-unsplash.jpg"
   },
   {
+    "title": "Suburban Sanctuary",
     "id": 4,
-    "image_url": "https://i.ibb.co/VLvNGtP/rodrigo-curi-P-g-Jsd-Ve6-F0-unsplash.jpg",
-    "title": "Your Key to Homeownership",
-    "description": "Unlock the door to homeownership with our range of affordable residential properties. Start building your future today."
+    "segment_name": "Residential",
+    "description": "Tranquil suburban living with easy access to urban conveniences.",
+    "price": 850000,
+    "status": "sale",
+    "area": "3500 sq ft",
+    "location": "789 Ocean Drive, Coastal Town, State, Country",
+    "facilities": ["ocean view", "swimming pool", "gourmet kitchen", "balcony"],
+    "image_url": "https://i.ibb.co/VLvNGtP/rodrigo-curi-P-g-Jsd-Ve6-F0-unsplash.jpg"
   },
   {
+    "title": "Seaside Villa",
     "id": 5,
-    "image_url": "https://i.ibb.co/DwgjRw5/brian-garrity-8-Ut-XBV88w-C4-unsplash.jpg",
-    "title": "Modern Living Spaces",
-    "description": "Discover modern and stylish living spaces designed to fit your lifestyle. Explore our selection of contemporary residential buildings."
+    "segment_name": "Residential",
+    "description": "Luxurious villa overlooking the ocean, perfect for beachside living.",
+    "price": 200000,
+    "status": "sale",
+    "area": "1600 sq ft",
+    "location": "321 Farm Road, Countryside, State, Country",
+    "facilities": ["scenic views", "garden", "fireplace"],
+    "image_url": "https://i.ibb.co/DwgjRw5/brian-garrity-8-Ut-XBV88w-C4-unsplash.jpg"
   },
   {
+    "title": "City Condo",
     "id": 6,
-    "image_url": "https://i.ibb.co/CWnG9F8/babak-habibi-Iljj-B-I1al-U-unsplash.jpg",
-    "title": "Find Your Sanctuary",
-    "description": "Escape the hustle and bustle of city life and find your sanctuary in one of our serene residential communities."
+    "segment_name": "Residential",
+    "description": "Convenient city living in this modern condominium with access to amenities.",
+    "price": 320000,
+    "status": "sale",
+    "area": "1000 sq ft",
+    "location": "789 Main Street, Downtown, State, Country",
+    "facilities": ["city view", "fitness center", "security"],
+    "image_url": "https://i.ibb.co/CWnG9F8/babak-habibi-Iljj-B-I1al-U-unsplash.jpg"
+  },
+  {
+    "title": "Urban Loft Living",
+    "id": 7,
+    "segment_name": "Residential",
+    "description": "Trendy loft space with industrial chic design in the heart of the city.",
+    "price": 380000,
+    "status": "sale",
+    "area": "2000 sq ft",
+    "location": "456 Park Avenue, Suburbia, State, Country",
+    "facilities": ["backyard", "deck", "family room"],
+    "image_url": "https://i.ibb.co/MZjsL1J/frames-for-your-heart-vb-SRUr-Nm3-Ik-unsplash.jpg"
+  },
+  {
+    "title": "Lakefront Cabin",
+    "id": 8,
+    "segment_name": "Residential",
+    "description": "Cozy cabin retreat nestled on the shores of a serene lake.",
+    "price": 180000,
+    "status": "sale",
+    "area": "800 sq ft",
+    "location": "123 Lakeview Lane, Lakeside, State, Country",
+    "facilities": ["lake view", "deck", "fire pit"],
+    "image_url": "https://i.ibb.co/jHNDfjG/etienne-beauregard-riverin-B0a-Cv-AVSX8-E-unsplash.jpg"
+  },
+  {
+    "title": "Mountain Retreat",
+    "id": 9,
+    "segment_name": "Residential",
+    "description": "Escape to the mountains with this charming retreat surrounded by forest.",
+    "price": 250000,
+    "status": "sale",
+    "area": "1400 sq ft",
+    "location": "789 Mountain Road, Mountainville, State, Country",
+    "facilities": ["mountain view", "hiking trails", "deck"],
+    "image_url": "https://i.ibb.co/X48KMzW/daniel-lozano-valdes-v-QBzv-WBFhr-I-unsplash.jpg"
   }
 ]

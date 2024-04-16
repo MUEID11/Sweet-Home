@@ -6,12 +6,18 @@ import UpdateProfile from "../Pages/UpdateProfile";
 import Profile from "../Pages/Profile";
 import Contact from "../Pages/Contact";
 import About from "../Pages/About";
+import ErrorPage from "../Pages/ErrorPage";
+import Login from "../Pages/Login";
+import Register from "../Pages/Register";
+import Details from "../Pages/Details";
+import Estates from "../Pages/Estates";
 
 const router = createBrowserRouter(
     [
         {
             path: '/',
             element: <App/>,
+            errorElement: <ErrorPage></ErrorPage>,
             children:[
                 {
                     path:'/',
@@ -32,6 +38,22 @@ const router = createBrowserRouter(
                 {
                     path:'/about',
                     element: <About/>
+                },
+                {
+                    path: '/login',
+                    element: <Login/>
+                },
+                {
+                    path: '/signup',
+                    element: <Register/>
+                },
+                {
+                    path: '/details/:id',
+                    element: <Details/>
+                },
+                {
+                    path: '/estates',
+                    element: <Estates/>
                 }
             ]
         }
