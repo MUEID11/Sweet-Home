@@ -2,7 +2,7 @@ import { GithubAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged,
 import { createContext, useEffect, useState } from "react";
 import auth from "../Firebase/firebase.config";
 import { GoogleAuthProvider } from "firebase/auth";
-
+import PropTypes from "prop-types";
 export const AuthContext = createContext();
 const googleProvider = new GoogleAuthProvider();
 const gitHubProvider = new GithubAuthProvider();
@@ -72,5 +72,7 @@ const AuthProvider = ({ children }) => {
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
   );
 };
-
+AuthProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 export default AuthProvider;

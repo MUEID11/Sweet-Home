@@ -73,7 +73,7 @@ const Navbar = () => {
 
         <div className="navbar-end">
   
-          {user?.email ? (
+          {user ? (
             <>
               <div className="dropdown dropdown-end">
                 <div

@@ -1,7 +1,7 @@
 import { FaLocationArrow } from "react-icons/fa";
 import { FaDollarSign } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-
+import PropTypes from "prop-types";
 const Estate = ({ estate }) => {
   const { id, title, description, image_url, location, price } = estate;
   return (
@@ -36,5 +36,7 @@ const Estate = ({ estate }) => {
     </div>
   );
 };
-
+Estate.propTypes = {
+  estate: PropTypes.object.isRequired,
+}
 export default Estate;

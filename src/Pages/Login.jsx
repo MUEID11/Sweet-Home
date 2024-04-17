@@ -54,7 +54,7 @@ const Login = () => {
   const handleGithubSignIn =()=>{
     githubSignIn()
     .then(result  => {
-      setSuccess(toast.success("Logged in succesfully"))
+      setSuccess(toast.success("Logged in succesfully"));
       console.log(result);
       navigate(location?.state ? location.state : '/');
     })

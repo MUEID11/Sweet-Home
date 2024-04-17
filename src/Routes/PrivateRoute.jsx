@@ -1,4 +1,4 @@
-
+import PropTypes from "prop-types";
 import { Navigate, useLocation } from "react-router-dom";
 import UseAuth from "../Hooks/UseAuth";
 
@@ -22,5 +22,7 @@ const PrivateRoute = ({ children }) => {
   // If user is not logged in, redirect to login page
   return <Navigate state={location.pathname} to="/login" />;
 };
-
+PrivateRoute.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 export default PrivateRoute;
