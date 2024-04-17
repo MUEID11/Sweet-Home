@@ -11,6 +11,7 @@ const Estates = () => {
         data-aos-duration="1000"
         className="text-center space-y-5 mb-10"
       >
+        
         <h2 className="text-4xl font-bold">Estates</h2>
         <p className="text-xl font-medium">
           Welcome To The Epitome Of Urban Luxury Living At Sweet Homes, Find A

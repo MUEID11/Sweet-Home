@@ -24,7 +24,7 @@ const Details = () => {
       </Helmet>
       <div className="hero-overlay bg-opacity-80"></div>
       <div className="grid sm:grid-cols-2 grid-cols-1 p-4 gap-4 sm:p-20 sm:gap-10 text-white">
-        <div className="min-w-md">
+        <div className="min-w-md ">
           <h1 className="mb-5 text-5xl font-bold">{property?.title}</h1>
           <p className="mb-5">{property?.description}</p>
           <hr className="mb-3" />

@@ -3,7 +3,7 @@ import logo from "./../../public/logo.png";
 import { RiLogoutBoxLine, RiLogoutBoxRLine } from "react-icons/ri";
 import UseAuth from "../Hooks/UseAuth";
 import { Helmet } from "react-helmet";
-
+import 'animate.css'
 const Navbar = () => {
   const { user, logOutUser } = UseAuth();
   const handleSignOut = () => {
@@ -35,8 +35,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div data-aos="fade-down"
-    data-aos-duration="1200" className="bg-gray-50 shadow-sm shadow-blue-100">
+    <div className="bg-gray-50 shadow-sm shadow-blue-100 animate__animated animate__backInLeft">
       <Helmet><title>Sweet Home</title></Helmet>
       <div className="navbar container mx-auto relative">
         <div className="navbar-start">
