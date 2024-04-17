@@ -1,6 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "./../../public/logo.png";
-import { RiLogoutBoxLine, RiLogoutBoxRLine } from "react-icons/ri";
 import UseAuth from "../Hooks/UseAuth";
 import { Helmet } from "react-helmet";
 import 'animate.css'
@@ -35,9 +34,9 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="bg-gray-50 shadow-sm shadow-blue-100 animate__animated animate__backInLeft">
+    <div className="bg-gray-50 shadow-sm shadow-blue-100 relative">
       <Helmet><title>Sweet Home</title></Helmet>
-      <div className="navbar container mx-auto relative">
+      <div className="navbar container mx-auto ">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -63,8 +62,8 @@ const Navbar = () => {
               {navLinks}
             </ul>
           </div>
-          <Link to="/" className="btn btn-ghost sm:text-xl font-bold">
-            <img className="sm:w-10 w-6 rounded-full" src={logo} alt="logo" />{" "}
+          <Link to="/" className="sm:text-xl text-xs font-bold flex items-center">
+            <img className="sm:w-10 w-4 rounded-full mr-2" src={logo} alt="logo" />{" "}
             Sweet Home
           </Link>
         </div>
@@ -91,7 +90,7 @@ const Navbar = () => {
                 </div>
                 <ul
                   tabIndex={0}
-                  className="mt-3 p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52 absolute z-20"
+                  className="mt-3 p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52 absolute z-30"
                 >
                   <li>
                     <a className="justify-between">
@@ -112,13 +111,13 @@ const Navbar = () => {
                     to="/login"
                     className="btn bg-blue-400 text-white"
                   >
-                    <RiLogoutBoxLine /> Log Out
+                   Log Out
                   </Link>
               </div>
             </>
           ) : (
             <Link to="/login" className="btn bg-blue-400 text-white">
-              <RiLogoutBoxRLine /> Log In
+               Log In
             </Link>
           )}
         </div>

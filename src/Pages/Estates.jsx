@@ -19,7 +19,7 @@ const Estates = () => {
         </p>
       </div>
       <div data-aos="fade-up"
-        className="grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-4 sm:gap-8 sm:m-0 mx-4"
+        className="grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-2 sm:gap-8 sm:m-0 mx-4"
       >
         {data.map((estate) => (
           <Estate key={estate?.id} estate={estate}></Estate>

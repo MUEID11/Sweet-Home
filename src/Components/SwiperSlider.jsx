@@ -48,8 +48,8 @@ export default function SwiperSlider() {
                 className="hero-content text-center text-neutral-content"
               >
                 <div className="max-w-md">
-                  <h1 className="mb-5 text-5xl font-bold">{slide?.title}</h1>
-                  <p className="mb-5">{slide?.description}</p>
+                  <h1 className="mb-5 text-5xl font-bold  animate__animated animate__backInDown">{slide?.title}</h1>
+                  <p className="mb-5  animate__animated animate__backInUp">{slide?.description}</p>
                   <Link
                     to="/estates"
                     className="btn bg-blue-500 text-white border-none"
