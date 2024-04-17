@@ -10,7 +10,7 @@ Features:
 - Scroll Animations with AOS: Add captivating scroll animations to elements on the website using AOS (Animate On Scroll) library.
 
 
-- Dependencies For challenge task
+ Dependencies For challenge task
 - swiper: For implementing the Swiper slider.
 - animate.css: For adding animations to various elements on the website.
 - aos: For creating scroll animations to improve user engagement.
