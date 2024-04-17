@@ -1,6 +1,6 @@
 # My Awesome Website
 
-Visit the live site: [MyAwesomeWebsite.com](https://661fcba72b51223aed6c4e7f--jovial-pixie-8cfb38.netlify.app/)
+Visit the live site: [MyAwesomeWebsite.com](https://b9-assignment9.web.app/)
 
 ## Features
 

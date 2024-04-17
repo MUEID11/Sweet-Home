@@ -4,12 +4,15 @@ import UseAuth from "../Hooks/UseAuth";
 import { Helmet } from "react-helmet";
 import { useState } from "react";
 import { toast } from "react-toastify";
+import { BiHide, BiShow } from "react-icons/bi";
 
 const Register = () => {
+  const [showPass, setShowPass] = useState(false);
   const [success, setSuccess] = useState("");
-  const [registerError, setRegisterError] = useState("")
+  const [registerError, setRegisterError] = useState("");
   // const [registerError, setRegisterError] = useState("");
-  const { createUser, updateUserProfile,googleSignIn, githubSignIn} = UseAuth();
+  const { createUser, updateUserProfile, googleSignIn, githubSignIn } =
+    UseAuth();
   const location = useLocation();
   const navigate = useNavigate();
   const handleRegister = (e) => {
@@ -20,17 +23,22 @@ const Register = () => {
     const name = form.get("name");
     const photo = form.get("photo");
     if (!/(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.{6,})/.test(password)) {
-      setRegisterError('Password must be at least 6 characters long and contain at least one special character and one uppercase letter.');
-      toast.error('Password must be at least 6 characters long and contain at least one special character and one uppercase letter.');
+      setRegisterError(
+        "Password must be at least 6 characters long and contain at least one special character and one uppercase letter."
+      );
+      toast.error(
+        "Password must be at least 6 characters long and contain at least one special character and one uppercase letter."
+      );
       return;
     }
     //reset error
-    setRegisterError('');
-    setSuccess('')
+    setRegisterError("");
+    setSuccess("");
     //creating user
     createUser(email, password, name, photo)
       .then(() => {
         updateUserProfile(name, photo).then(() => {
+          setSuccess(toast.success("Registration successfull"));
           navigate(location?.state ? location.state : "/");
         });
       })
@@ -41,30 +49,28 @@ const Register = () => {
   };
   const handleGoogleSignIn = () => {
     googleSignIn()
-    .then(result => {
-      console.log(result);
-      setSuccess(toast.success('Login successfull'))
-      navigate(location?.state ? location.state : '/');
-    } 
-      
-    )
-    .catch(error => {
-      setRegisterError(error.message);
-      toast.error(error.message);
-    })
-  }
-  const handleGithubSignIn =()=>{
+      .then((result) => {
+        console.log(result);
+        setSuccess(toast.success("Login successfull"));
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((error) => {
+        setRegisterError(error.message);
+        toast.error(error.message);
+      });
+  };
+  const handleGithubSignIn = () => {
     githubSignIn()
-    .then(result  => {
-      setSuccess(toast.success('Login successfull'))
-      console.log(result);
-      navigate(location?.state ? location.state : '/');
-    })
-    .catch(error => {
-      setRegisterError(error.message);
-      toast.error(error.message);
-    })
-  }
+      .then((result) => {
+        setSuccess(toast.success("Login successfull"));
+        console.log(result);
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((error) => {
+        setRegisterError(error.message);
+        toast.error(error.message);
+      });
+  };
   return (
     <div className="w-full max-w-md p-4 rounded-md shadow sm:p-8 dark:bg-gray-50 dark:text-gray-800 container mx-auto my-6 shadow-blue-100">
       <Helmet>
@@ -83,11 +89,10 @@ const Register = () => {
           Sign in
         </Link>
       </p>
-      
-      
+
       <div className="my-6 space-y-4">
         <button
-        onClick={handleGoogleSignIn}
+          onClick={handleGoogleSignIn}
           aria-label="Login with Google"
           type="button"
           className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-600 focus:dark:ring-violet-600"
@@ -96,7 +101,7 @@ const Register = () => {
           <p>Login with Google</p>
         </button>
         <button
-        onClick={handleGithubSignIn}
+          onClick={handleGithubSignIn}
           aria-label="Login with GitHub"
           role="button"
           className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-600 focus:dark:ring-violet-600"
@@ -157,19 +162,33 @@ const Register = () => {
             />
           </div>
           <div className="space-y-2">
-            <div className="flex justify-between">
-              <label htmlFor="password" className="text-sm">
-                Password
-              </label>
+            <label className="label">
+              <span className="label-text">Password</span>
+            </label>
+            <div className="relative">
+              <input
+                type={showPass ? "text" : "password"}
+                // onChange={(e) => validatePassword(e.target.value)}
+                placeholder="password"
+                name="password"
+                id="password"
+                className="w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
+                required
+              />
+              <div>
+                {showPass ? (
+                  <BiShow
+                    onClick={() => setShowPass(false)}
+                    className="text-2xl absolute top-3 right-2"
+                  />
+                ) : (
+                  <BiHide
+                    onClick={() => setShowPass(true)}
+                    className="text-2xl absolute top-3 right-2"
+                  />
+                )}
+              </div>
             </div>
-            <input
-              required
-              type="password"
-              name="password"
-              id="password"
-              placeholder="Password"
-              className="w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
-            />
           </div>
         </div>
         <button
@@ -179,9 +198,10 @@ const Register = () => {
           Register
         </button>
       </form>
-      {
-        success && <p className="text-green-500">User created succesfully</p> || registerError && <p className="text-red-500">{registerError}</p>
-      }
+      {(success && (
+        <p className="text-green-500">User created succesfully</p>
+      )) ||
+        (registerError && <p className="text-red-500">{registerError}</p>)}
     </div>
   );
 };

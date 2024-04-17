@@ -2,7 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import logo from "./../../public/logo.png";
 import UseAuth from "../Hooks/UseAuth";
 import { Helmet } from "react-helmet";
-import 'animate.css'
+import "animate.css";
 const Navbar = () => {
   const { user, logOutUser } = UseAuth();
   const handleSignOut = () => {
@@ -35,8 +35,12 @@ const Navbar = () => {
   );
   return (
     <div className="bg-gray-50 shadow-sm shadow-blue-100 relative">
-      <Helmet><title>Sweet Home</title></Helmet>
-      <div className="navbar container mx-auto ">
+      <Helmet>
+        <title>Sweet Home</title>
+      </Helmet>
+      <div
+        className="navbar container mx-auto"
+      >
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -62,8 +66,15 @@ const Navbar = () => {
               {navLinks}
             </ul>
           </div>
-          <Link to="/" className="sm:text-xl text-xs font-bold flex items-center">
-            <img className="sm:w-10 w-4 rounded-full mr-2" src={logo} alt="logo" />{" "}
+          <Link
+            to="/"
+            className="sm:text-xl text-xs font-bold flex items-center"
+          >
+            <img
+              className="sm:w-10 w-4 rounded-full mr-2"
+              src={logo}
+              alt="logo"
+            />{" "}
             Sweet Home
           </Link>
         </div>
@@ -72,7 +83,6 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-end">
-  
           {user ? (
             <>
               <div className="dropdown dropdown-end">
@@ -106,18 +116,18 @@ const Navbar = () => {
                 </ul>
               </div>
               <div>
-              <Link
-                    onClick={logOutUser}
-                    to="/login"
-                    className="btn bg-blue-400 text-white"
-                  >
-                   Log Out
-                  </Link>
+                <Link
+                  onClick={logOutUser}
+                  to="/login"
+                  className="btn bg-blue-400 text-white"
+                >
+                  Log Out
+                </Link>
               </div>
             </>
           ) : (
             <Link to="/login" className="btn bg-blue-400 text-white">
-               Log In
+              Log In
             </Link>
           )}
         </div>
