@@ -1,4 +1,4 @@
-import { GithubAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { GithubAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from "../Firebase/firebase.config";
 import { GoogleAuthProvider } from "firebase/auth";
@@ -12,7 +12,7 @@ const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
   useEffect(() => {
-    fetch("/BannerData.json")
+    fetch("/bannerData.json")
       .then((res) => res.json())
       .then((info) => {
         setData(info);
@@ -21,6 +21,13 @@ const AuthProvider = ({ children }) => {
   const createUser = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
+  }
+  //update user porfile
+  const updateUserProfile = (name, photo) =>{
+    return updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL: photo,
+    } )
   }
   const signInUser = (email, password) => {
     setLoading(true);
@@ -35,7 +42,8 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, gitHubProvider)
   }
   const logOutUser = () =>{
-    setLoading(true)
+    setLoading(true);
+    setUser(null)
     return signOut(auth);
   }
   useEffect(() => {
@@ -57,6 +65,7 @@ const AuthProvider = ({ children }) => {
     googleSignIn,
     githubSignIn,
     logOutUser,
+    updateUserProfile,
 
   };
   return (

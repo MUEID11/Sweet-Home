@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { FaDollarSign, FaLocationDot} from "react-icons/fa6";
 import UseAuth from "../Hooks/UseAuth";
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 
 const Details = () => {
   const { data} = UseAuth();
@@ -18,6 +19,9 @@ const Details = () => {
       className="hero min-h-screen"
       style={{ backgroundImage: `url(${property?.image_url})` }}
     >
+      <Helmet>
+        <title>{property?.title}</title>
+      </Helmet>
       <div className="hero-overlay bg-opacity-80"></div>
       <div className="grid sm:grid-cols-2 grid-cols-1 p-4 gap-4 sm:p-20 sm:gap-10 text-white">
         <div className="min-w-md">

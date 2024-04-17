@@ -13,6 +13,7 @@ import Details from "../Pages/Details";
 import Estates from "../Pages/Estates";
 import PrivateRoute from "./PrivateRoute";
 
+import 'react-toastify/dist/ReactToastify.css';
 const router = createBrowserRouter(
     [
         {
@@ -26,11 +27,11 @@ const router = createBrowserRouter(
                 },
                 {
                     path:'/upadteprofile',
-                    element: <UpdateProfile/>
+                    element: <PrivateRoute><UpdateProfile/></PrivateRoute>
                 },
                 {
                     path: '/Profile',
-                    element: <Profile/>
+                    element: <PrivateRoute><Profile/></PrivateRoute>
                 },
                 {
                     path: '/contact',
@@ -50,7 +51,7 @@ const router = createBrowserRouter(
                 },
                 {
                     path: '/details/:id',
-                    element: <PrivateRoute> <Details/>          </PrivateRoute>
+                    element: <PrivateRoute> <Details/></PrivateRoute>
                 },
                 {
                     path: '/estates',

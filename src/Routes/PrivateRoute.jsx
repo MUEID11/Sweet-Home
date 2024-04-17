@@ -9,18 +9,17 @@ const PrivateRoute = ({ children }) => {
   if (loading) {
     // Show loading spinner if authentication data is still being fetched
     return (
-      <div className="relative flex items-center justify-center">
+      <div className="relative h-[65vh] flex items-center justify-center">
         <span className="loading loading-spinner text-info loading-md absolute top-50 translate-y-5"></span>
       </div>
     );
   }
-
-  // If user is authenticated, render the children component
+  // If user is logged in, render the children component
   if (user) {
     return children;
   }
 
-  // If user is not authenticated, redirect to login page
+  // If user is not logged in, redirect to login page
   return <Navigate state={location.pathname} to="/login" />;
 };
 

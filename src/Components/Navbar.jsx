@@ -1,19 +1,20 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "./../../public/logo.png";
-import { useContext } from "react";
-import { AuthContext } from "../Provider/AuthProvider";
 import { RiLogoutBoxLine, RiLogoutBoxRLine } from "react-icons/ri";
+import UseAuth from "../Hooks/UseAuth";
+import { Helmet } from "react-helmet";
+
 const Navbar = () => {
-  const {user, logOutUser} = useContext(AuthContext);
-  const handleSignOut = () =>{
+  const { user, logOutUser } = UseAuth();
+  const handleSignOut = () => {
     logOutUser()
-    .then(result => {
-      console.log('logged out succsfull', result)
-    })
-    .catch(error => {
-      console.log(error)
-    })
-  }
+      .then((result) => {
+        console.log("logged out succsfull", result);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   const navLinks = (
     <>
       <li>
@@ -34,7 +35,9 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="bg-gray-50 shadow-sm shadow-blue-100">
+    <div data-aos="fade-down"
+    data-aos-duration="1200" className="bg-gray-50 shadow-sm shadow-blue-100">
+      <Helmet><title>Sweet Home</title></Helmet>
       <div className="navbar container mx-auto relative">
         <div className="navbar-start">
           <div className="dropdown">
@@ -69,26 +72,56 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navLinks}</ul>
         </div>
+
         <div className="navbar-end">
-          <div
-            tabIndex={0}
-            role="button"
-            className="btn btn-ghost btn-circle avatar"
-          >
-            <div className="w-10 rounded-full">
-              <img
-                alt="Tailwind CSS Navbar component"
-                src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-              />
-            </div>
-          </div>
-          {
-            user ? <Link onClick={handleSignOut} to="/login" className="btn bg-blue-400 text-white">
-            <RiLogoutBoxLine /> Log Out
-          </Link> : <Link to="/login" className="btn bg-blue-400 text-white">
-          <RiLogoutBoxRLine /> Log In
-          </Link>
-          }
+  
+          {user?.email ? (
+            <>
+              <div className="dropdown dropdown-end">
+                <div
+                  tabIndex={0}
+                  role="button"
+                  className="btn btn-ghost btn-circle avatar"
+                >
+                  <div className="w-10 rounded-full">
+                    <img
+                      alt="Tailwind CSS Navbar component"
+                      src={user?.photoURL}
+                    />
+                  </div>
+                </div>
+                <ul
+                  tabIndex={0}
+                  className="mt-3 p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52 absolute z-20"
+                >
+                  <li>
+                    <a className="justify-between">
+                      {user?.displayName || "No name found"}
+                      <span className="badge">New</span>
+                    </a>
+                  </li>
+                  <li>
+                    <Link onClick={handleSignOut} to="/login">
+                      Log Out
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+              <div>
+              <Link
+                    onClick={logOutUser}
+                    to="/login"
+                    className="btn bg-blue-400 text-white"
+                  >
+                    <RiLogoutBoxLine /> Log Out
+                  </Link>
+              </div>
+            </>
+          ) : (
+            <Link to="/login" className="btn bg-blue-400 text-white">
+              <RiLogoutBoxRLine /> Log In
+            </Link>
+          )}
         </div>
       </div>
     </div>
