@@ -6,14 +6,14 @@ const About = () => {
     <div className="bg-gray-100 py-16 px-4 sm:px-6 lg:px-8">
       <Helmet><title>About</title></Helmet>
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-center text-left">
-        <div className=" animate__animated animate__backInRight md:w-1/2">
+        <div className="md:w-1/2">
           <img
             className="mx-auto h-auto w-full rounded-lg"
             src={logo}
             alt="Residential Building"
           />
         </div>
-        <div className=" animate__animated animate__backInLeft md:w-1/2 md:ml-8 mt-8 md:mt-0">
+        <div className="md:w-1/2 md:ml-8 mt-8 md:mt-0">
           <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
             About Us
           </h2>
